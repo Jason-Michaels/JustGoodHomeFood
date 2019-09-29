@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+      { "src": "package.json",
+        "use": "@now/static-build",
+        "config": { "distDir": "frontend/mysite.io/public" }
+      },
+      {
+            "src": "index.py",
+            "use": "@now/python",
+            "config": {
+                "maxLambdaSize": "25mb"
+                }
+      }
+   ],
+   "routes": [
+        {
+            "src": "/api",
+            "dest": "index.py"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "$1"
+        }
+    ],
+    "build": {
+        "env":{
+            "APIURL2":"@api-url",
+            "test2": "Hello there"
+        }
+    } 
+}

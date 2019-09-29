@@ -1,0 +1,5 @@
+node_modules/
+package-lock.json
+frontend/mysite.io/public/
+__pycache__/
+.env

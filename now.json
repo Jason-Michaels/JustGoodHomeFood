@@ -26,6 +26,7 @@
     "build": {
         "env":{
             "APIURL2":"@api-url",
+            "apicontent": "20190929",
             "test2": "Hello there"
         }
     } 

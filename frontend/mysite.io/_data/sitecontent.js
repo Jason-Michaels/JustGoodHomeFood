@@ -2,14 +2,17 @@ let axios = require('axios');
 require('dotenv').config();
 
 module.exports = async function() {
-    let path = 'sheet1'
-    return axios.get(process.env.APIURL2 + path)
+    let path = 'treetruck'
+    let setorigin = axios.get(process.env.APIURL2 + path)
         .then(function (response) {
             console.log(response.data);
             return response.data;
         })
         .catch(function(error) {
             console.log(error)
-            return {'error': 'see logs'}
+            return {}
         })
+    console.log("data to get")
+    console.log(setorigin)
+    return setorigin
 }

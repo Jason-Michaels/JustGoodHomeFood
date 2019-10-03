@@ -6,8 +6,7 @@
     },
     "description": "",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "cogear-build": "cd frontend/mysite.io && node ../../node_modules/cogear/bin/cogear.js build",
+        "local-dev": "npx @11ty/eleventy --input=frontend/mysite.io --output=frontend/mysite.io/public --serve",
         "now-build": "npx @11ty/eleventy --input=frontend/mysite.io --output=frontend/mysite.io/public"
     },
     "repository": {

@@ -4,10 +4,10 @@ require('dotenv').config();
 module.exports = async function() {
     let search = '{"apidate":"'+process.env.apicontent+'"}';
     let path = 'treetruck?search='+search;
-    console.log(path);
-    let setorigin = axios.get(process.env.APIURL2 + path)
+    //console.log(path);
+    let setorigin = await axios.get(process.env.APIURL2 + path)
         .then(function (response) {
-            console.log(response.data);
+            //console.log(response.data);
             return response.data;
         })
         .catch(function(error) {
@@ -15,6 +15,14 @@ module.exports = async function() {
             return {}
         })
     console.log("data to get")
-    console.log(setorigin)
-    return setorigin
+    let finaldata = await axios.get(setorigin[0]["urlbase"] + setorigin[0]["sheetbase"])
+        .then(function (response) {
+            //console.log(response.data);
+            return response.data;
+        })
+        .catch(function(error) {
+            console.log(error)
+            return {}
+        })
+    return finaldata
 }

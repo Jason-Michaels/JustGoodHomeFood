@@ -2,7 +2,8 @@ let axios = require('axios');
 require('dotenv').config();
 
 module.exports = async function() {
-    let path = 'treetruck'
+    let search = '{"apidate":"'+process.env.apicontent+'"}';
+    let path = 'treetruck?search='+search;
     let setorigin = axios.get(process.env.APIURL2 + path)
         .then(function (response) {
             console.log(response.data);

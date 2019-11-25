@@ -16,4 +16,4 @@ jobs:
         echo Add other actions to build,
         echo $test_value
       env:
-        test_value: ${{ secrets.GITHUB_TOKEN }}
+        test_value: yo!!!

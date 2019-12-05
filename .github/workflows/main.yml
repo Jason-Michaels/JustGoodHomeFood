@@ -9,15 +9,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a multi-line script
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Eleventy build
       run: |
-        echo Add other actions to build,
-        git config --list
-      env:
-        test_value: yo!!!
+        npx @11ty/eleventy --input=frontend/mysite.io --output=frontend/mysite.io/public
     - name: Deploy to GH Pages
       uses: peaceiris/actions-gh-pages@v2.5.0
       env: 
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./frontend
+        PUBLISH_DIR: ./frontend/mysite.io/public

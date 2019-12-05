@@ -15,7 +15,8 @@ jobs:
         node-version: '12.x'
     - name: Eleventy build
       run: |
-        npx @11ty/eleventy --input=frontend/mysite.io --output=frontend/mysite.io/public
+        npm install
+        npm run now-build
     - name: Deploy to GH Pages
       uses: peaceiris/actions-gh-pages@v2.5.0
       env: 
